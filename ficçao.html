@@ -1,0 +1,1199 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ficção Científica | Mundo do Cinema</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080b0d;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* HEADER */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: rgba(8, 11, 13, .96);
+            border-bottom: 1px solid rgba(212, 175, 55, .35);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        nav a:hover,
+        nav a.ativo {
+            color: #d4af37;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            padding: 120px 10% 70px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.45), rgba(0,0,0,.85)),
+                url("../images/ficcao-banner.jpg") center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .categoria {
+            color: #d4af37;
+            font-size: 15px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(48px, 8vw, 100px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 650px;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #b00000;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: #d4af37;
+            color: #080b0d;
+        }
+
+        /* SEÇÕES */
+
+        section {
+            padding: 90px 10%;
+        }
+
+        .titulo-secao {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            font-size: 38px;
+            margin-bottom: 18px;
+        }
+
+        .subtitulo {
+            color: #a7a7a7;
+            line-height: 1.8;
+            max-width: 850px;
+            margin-bottom: 45px;
+        }
+
+        /* HISTÓRIA */
+
+        .historia {
+            background: #0d1113;
+        }
+
+        .historia-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .historia img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, .5);
+        }
+
+        .historia p {
+            color: #bdbdbd;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        /* CARACTERÍSTICAS */
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .info-card {
+            background: #111719;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,.06);
+            transition: .3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212,175,55,.5);
+        }
+
+        .numero {
+            color: #b00000;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .info-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .info-card p {
+            color: #a7a7a7;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* LINHA DO TEMPO */
+
+        .timeline {
+            background: #0d1113;
+        }
+
+        .linha {
+            border-left: 2px solid #b00000;
+            padding-left: 35px;
+        }
+
+        .timeline-item {
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #d4af37;
+            border-radius: 50%;
+            left: -42px;
+            top: 5px;
+        }
+
+        .timeline-item h3 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            color: #aaa;
+            line-height: 1.8;
+        }
+
+        /* FILMES */
+
+        .filmes {
+            background: #080b0d;
+        }
+
+        .cards-filmes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .filme-card {
+            background: #111719;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.06);
+            transition: .3s;
+        }
+
+        .filme-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212,175,55,.5);
+        }
+
+        .filme-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .filme-info {
+            padding: 20px;
+        }
+
+        .filme-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .filme-info p {
+            color: #a7a7a7;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .nota {
+            color: #d4af37;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* DIRETORES */
+
+        .diretores {
+            background: #080b0d;
+        }
+
+        .diretor-card {
+            background: #111719;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.06);
+            transition: .3s;
+            text-align: center;
+        }
+
+        .diretor-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212,175,55,.5);
+        }
+
+        .diretor-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .diretor-card div {
+            padding: 20px;
+        }
+
+        .diretor-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .diretor-card p {
+            color: #a7a7a7;
+            font-size: 13px;
+        }
+
+        /* TRAILER */
+
+        .trailer {
+            background: #0d1113;
+            text-align: center;
+        }
+
+        .trailer iframe {
+            width: 80%;
+            height: 450px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* CURIOSIDADES */
+
+        .curiosidades {
+            background: #080b0d;
+        }
+
+        /* FAQ */
+
+        .faq {
+            background: #0d1113;
+        }
+
+        .faq-item {
+            background: #111719;
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 10px;
+            padding: 25px 30px;
+            margin-bottom: 15px;
+        }
+
+        .faq-item h3 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .faq-item p {
+            color: #a7a7a7;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #050708;
+            border-top: 1px solid rgba(212,175,55,.35);
+            padding: 60px 10%;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        footer p,
+        footer a {
+            color: #888;
+            font-size: 13px;
+            line-height: 1.8;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #d4af37;
+        }
+
+        /* RESPONSIVO */
+
+        @media (max-width: 1100px) {
+
+            .grid-4,
+            .cards-filmes {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+
+            nav {
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 800px) {
+
+            header {
+                height: auto;
+                min-height: 80px;
+                flex-direction: column;
+                justify-content: center;
+                gap: 15px;
+                padding: 15px 7%;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 150px 7% 80px;
+            }
+
+            .historia-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trailer iframe {
+                width: 100%;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .grid-4,
+            .cards-filmes,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .titulo-secao {
+                font-size: 30px;
+            }
+
+            .filme-card img {
+                height: 400px;
+            }
+
+            .historia img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+            MUNDO<span>DO CINEMA</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="açao.html">Ação</a>
+            <a href="comedia.html">Comédia</a>
+            <a href="romance.html">Romance</a>
+            <a href="terror.html">Terror</a>
+            <a href="ficçao.html" class="ativo">Ficção</a>
+            <a href="suspense.html">Suspense</a>
+            <a href="drama.html">Drama</a>
+            <a href="crime.html">Crime</a>
+            <a href="aventura.html">Aventura</a>
+             <a href="lgbt.html" class="ativo">LGBTQIA+</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="categoria">
+                GÊNERO CINEMATOGRÁFICO
+            </div>
+
+            <h1>Ficção Científica</h1>
+
+            <p>
+                Um gênero que explora o futuro, a tecnologia, o espaço e
+                possibilidades extraordinárias, levando o público a imaginar
+                mundos além dos limites conhecidos.
+            </p>
+
+            <a href="#historia" class="btn">
+                Explorar o gênero
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- HISTÓRIA -->
+
+    <section class="historia" id="historia">
+
+        <h2 class="titulo-secao">
+            História da Ficção Científica
+        </h2>
+
+        <p class="subtitulo">
+            A ficção científica utiliza conceitos científicos e tecnológicos
+            para criar histórias sobre possibilidades futuras e realidades
+            alternativas.
+        </p>
+
+        <div class="historia-grid">
+
+            <img src="https://plus.unsplash.com/premium_photo-1722018576685-45a415a4ff67?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8ZmljJUMzJUE3JUMzJUEzbyUyMGNpZW50JUMzJUFEZmljYXxlbnwwfHwwfHx8MA%3D%3D" alt="História da ficção científica">
+
+            <div>
+
+                <p>
+                    A ficção científica surgiu no cinema ainda nos primeiros
+                    anos da indústria cinematográfica. Um dos grandes marcos
+                    foi o cinema fantástico de Georges Méliès, que imaginou
+                    viagens espaciais e mundos desconhecidos.
+                </p>
+
+                <p>
+                    Com o avanço da tecnologia, o gênero passou a abordar
+                    temas como inteligência artificial, viagens no tempo,
+                    exploração espacial e contato com outras formas de vida.
+                </p>
+
+                <p>
+                    Atualmente, a ficção científica continua evoluindo,
+                    combinando grandes efeitos visuais com histórias que
+                    questionam o futuro da humanidade.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CARACTERÍSTICAS -->
+
+    <section>
+
+        <h2 class="titulo-secao">
+            Características
+        </h2>
+
+        <p class="subtitulo">
+            Elementos que fazem da ficção científica um dos gêneros mais
+            imaginativos do cinema.
+        </p>
+
+        <div class="grid-4">
+
+            <div class="info-card">
+                <div class="numero">01</div>
+                <h3>Tecnologia</h3>
+                <p>
+                    Máquinas, robôs, inteligência artificial e invenções
+                    avançadas são frequentes nas histórias.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div class="numero">02</div>
+                <h3>Espaço</h3>
+                <p>
+                    Viagens espaciais, planetas distantes e civilizações
+                    extraterrestres ampliam os limites da narrativa.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div class="numero">03</div>
+                <h3>Futuro</h3>
+                <p>
+                    O gênero imagina como a sociedade e a humanidade podem
+                    mudar com o passar dos séculos.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div class="numero">04</div>
+                <h3>Possibilidades</h3>
+                <p>
+                    Realidades alternativas, viagens no tempo e conceitos
+                    científicos são usados para criar novas experiências.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LINHA DO TEMPO -->
+
+    <section class="timeline">
+
+        <h2 class="titulo-secao">
+            Evolução do Gênero
+        </h2>
+
+        <p class="subtitulo">
+            Alguns dos principais momentos da evolução da ficção científica
+            no cinema.
+        </p>
+
+        <div class="linha">
+
+            <div class="timeline-item">
+
+                <h3>1900 – 1930</h3>
+
+                <p>
+                    O cinema começa a explorar viagens à Lua, mundos
+                    fantásticos e invenções impossíveis.
+                </p>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <h3>1940 – 1960</h3>
+
+                <p>
+                    A era espacial influencia o cinema, trazendo histórias
+                    sobre extraterrestres, planetas e ameaças tecnológicas.
+                </p>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <h3>1970 – 1990</h3>
+
+                <p>
+                    Grandes produções transformam o gênero com efeitos
+                    especiais inovadores e universos cada vez mais complexos.
+                </p>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <h3>2000 – Hoje</h3>
+
+                <p>
+                    Computação gráfica, inteligência artificial e novas
+                    tecnologias permitem criar mundos extremamente detalhados.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FILMES CLÁSSICOS -->
+
+    <section class="filmes">
+
+        <h2 class="titulo-secao">
+            Filmes Clássicos
+        </h2>
+
+        <p class="subtitulo">
+            Obras que ajudaram a construir e popularizar a ficção científica
+            no cinema.
+        </p>
+
+        <div class="cards-filmes">
+
+            <div class="filme-card">
+
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/a43bfd9a6cd76e0aec5407d23a69a332e0054ee32ef151057d6e4ac6660a39e4.jpg" alt="2001 Uma Odisseia no Espaço">
+
+                <div class="filme-info">
+
+                    <h3>2001: Uma Odisseia no Espaço</h3>
+
+                    <p>
+                        Uma viagem espacial que aborda evolução,
+                        inteligência artificial e os mistérios do universo.
+                    </p>
+
+                    <div class="nota">★ 9.0/10</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="filme-card">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl-WTjojrZWflJFiqu-zlsp5xxd0OeSehodxDZJoIVOZDOHMcTnA4Bb5U&s=10" alt="Blade Runner">
+
+                <div class="filme-info">
+
+                    <h3>Blade Runner</h3>
+
+                    <p>
+                        Uma visão futurista marcada por tecnologia,
+                        inteligência artificial e questões sobre humanidade.
+                    </p>
+
+                    <div class="nota">★ 8.1/10</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="filme-card">
+
+                <img src="https://vicentemanera.com/wp-content/uploads/2022/02/matrix_resurrections.jpg" alt="Matrix">
+
+                <div class="filme-info">
+
+                    <h3>Matrix</h3>
+
+                    <p>
+                        Uma realidade controlada por máquinas coloca em
+                        dúvida aquilo que os seres humanos consideram real.
+                    </p>
+
+                    <div class="nota">★ 8.7/10</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="filme-card">
+
+                <img src="https://preview.redd.it/as-fans-of-the-alien-franchise-what-are-some-things-that-v0-deczrwgn2und1.jpeg?auto=webp&s=94fcca325ea57aa7ee814710fd3d8de36d56c0d4" alt="Alien">
+
+                <div class="filme-info">
+
+                    <h3>Alien</h3>
+
+                    <p>
+                        Uma tripulação espacial enfrenta uma ameaça
+                        desconhecida durante uma missão.
+                    </p>
+
+                    <div class="nota">★ 8.5/10</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FILMES MODERNOS -->
+
+    <section>
+
+        <h2 class="titulo-secao">
+            Filmes Modernos
+        </h2>
+
+        <p class="subtitulo">
+            Produções recentes que continuam renovando o gênero.
+        </p>
+
+        <div class="cards-filmes">
+
+            <div class="filme-card">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9wp-Is6oXDOnQtgIKcWshakY0HdMlYoEEDRGx9AxlaA&s=10" alt="Interestelar">
+
+                <div class="filme-info">
+
+                    <h3>Interestelar</h3>
+
+                    <p>
+                        Uma equipe viaja pelo espaço em busca de um novo
+                        futuro para a humanidade.
+                    </p>
+
+                    <div class="nota">★ 8.7/10</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="filme-card">
+
+                <img src="https://m.media-amazon.com/images/I/81zN7udGRUL.jpg" alt="Duna">
+
+                <div class="filme-info">
+
+                    <h3>Duna</h3>
+
+                    <p>
+                        Uma épica história de política, poder e sobrevivência
+                        ambientada em um planeta desértico.
+                    </p>
+
+                    <div class="nota">★ 8.0/10</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="filme-card">
+
+                <img src="https://m.media-amazon.com/images/M/MV5BZTk1YWEyMzItNGZiOC00YmU5LWFmZTgtMGFmZTA3NTU1YTk1XkEyXkFqcGc@._V1_.jpg" alt="A Chegada">
+
+                <div class="filme-info">
+
+                    <h3>A Chegada</h3>
+
+                    <p>
+                        Uma linguista tenta estabelecer comunicação com seres
+                        extraterrestres que chegam à Terra.
+                    </p>
+
+                    <div class="nota">★ 7.9/10</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="filme-card">
+
+                <img src="https://www.universalpics.com.br/tl_files/content/movies/oppenheimer/oppenheimer_header-mobile.jpg" alt="Oppenheimer">
+
+                <div class="filme-info">
+
+                    <h3>Oppenheimer</h3>
+
+                    <p>
+                        Uma história sobre ciência, descobertas e as
+                        consequências de uma das maiores invenções da história.
+                    </p>
+
+                    <div class="nota">★ 8.6/10</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DIRETORES -->
+
+    <section class="diretores">
+
+        <h2 class="titulo-secao">
+            Diretores Importantes
+        </h2>
+
+        <p class="subtitulo">
+            Cineastas que ajudaram a transformar a ficção científica.
+        </p>
+
+        <div class="grid-4">
+
+            <div class="diretor-card">
+
+                <img src="https://m.media-amazon.com/images/M/MV5BYTA0YmYyZmUtY2E0Yi00NzEwLWIzNWMtOTFiZDM5NjE2YmRjXkEyXkFqcGc@._V1_.jpg" alt="Stanley Kubrick">
+
+                <div>
+                    <h3>Stanley Kubrick</h3>
+                    <p>2001: Uma Odisseia no Espaço</p>
+                </div>
+
+            </div>
+
+
+            <div class="diretor-card">
+
+                <img src="https://ntvb.tmsimg.com/assets/assets/233377_v9_bb.jpg?w=360&h=480" alt="Christopher Nolan">
+
+                <div>
+                    <h3>Christopher Nolan</h3>
+                    <p>Interestelar</p>
+                </div>
+
+            </div>
+
+
+            <div class="diretor-card">
+
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Denis_Villeneuve_Cannes_2018.jpg?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=original" alt="Denis Villeneuve">
+
+                <div>
+                    <h3>Denis Villeneuve</h3>
+                    <p>Duna e A Chegada</p>
+                </div>
+
+            </div>
+
+
+            <div class="diretor-card">
+
+                <img src="https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2025/03/ridley-scott.jpg?w=1200&h=1200&crop=1" alt="Ridley Scott">
+
+                <div>
+                    <h3>Ridley Scott</h3>
+                    <p>Alien e Blade Runner</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRAILER -->
+
+    <section class="trailer">
+
+        <h2 class="titulo-secao">
+            Trailer em Destaque
+        </h2>
+
+        <p class="subtitulo">
+            Confira um dos grandes filmes modernos de ficção científica.
+        </p>
+
+        <iframe
+            src="https://www.youtube.com/embed/zSWdZVtXT7E"
+            title="Trailer de Interestelar"
+            allowfullscreen>
+        </iframe>
+
+    </section>
+
+
+    <!-- CURIOSIDADES -->
+
+    <section class="curiosidades">
+
+        <h2 class="titulo-secao">
+            Curiosidades
+        </h2>
+
+        <p class="subtitulo">
+            Alguns fatos interessantes sobre o gênero.
+        </p>
+
+        <div class="grid-4">
+
+            <div class="info-card">
+
+                <div class="numero">01</div>
+
+                <h3>Viagem no Tempo</h3>
+
+                <p>
+                    O conceito de viagem temporal aparece em inúmeras
+                    histórias de ficção científica.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="numero">02</div>
+
+                <h3>Inteligência Artificial</h3>
+
+                <p>
+                    A relação entre humanos e máquinas é um dos temas mais
+                    explorados pelo gênero.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="numero">03</div>
+
+                <h3>Vida Extraterrestre</h3>
+
+                <p>
+                    O possível contato com outras formas de vida é um dos
+                    maiores temas da ficção científica.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="numero">04</div>
+
+                <h3>Previsões</h3>
+
+                <p>
+                    Algumas ideias apresentadas em filmes acabaram se
+                    aproximando de tecnologias desenvolvidas posteriormente.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+
+    <section class="faq">
+
+        <h2 class="titulo-secao">
+            Perguntas Frequentes
+        </h2>
+
+        <div class="faq-item">
+
+            <h3>O que é ficção científica?</h3>
+
+            <p>
+                É um gênero que utiliza ciência, tecnologia e conceitos
+                especulativos para criar histórias e imaginar diferentes
+                possibilidades.
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h3>Qual é um dos primeiros filmes do gênero?</h3>
+
+            <p>
+                Viagem à Lua, de Georges Méliès, lançado em 1902, é considerado
+                um dos grandes marcos iniciais da ficção científica no cinema.
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h3>Ficção científica fala apenas sobre o futuro?</h3>
+
+            <p>
+                Não. O gênero também pode explorar realidades alternativas,
+                universos paralelos, viagens no tempo e outras possibilidades.
+            </p>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <h3>Quais temas aparecem com frequência?</h3>
+
+            <p>
+                Tecnologia, inteligência artificial, exploração espacial,
+                extraterrestres, viagens no tempo e futuro da humanidade são
+                alguns dos temas mais comuns.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+            <div>
+
+                <h3>Mundo do Cinema</h3>
+
+                <p>
+                    Um espaço dedicado à história, aos gêneros, aos filmes
+                    e às pessoas que fazem o cinema acontecer.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Gêneros</h3>
+
+                <p><a href="acao.html">Ação</a></p>
+                <p><a href="comedia.html">Comédia</a></p>
+                <p><a href="romance.html">Romance</a></p>
+                <p><a href="terror.html">Terror</a></p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Mais</h3>
+
+                <p><a href="suspense.html">Suspense</a></p>
+                <p><a href="drama.html">Drama</a></p>
+                <p><a href="crime.html">Crime</a></p>
+                <p><a href="aventura.html">Aventura</a></p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Site</h3>
+
+                <p><a href="../index.html">Início</a></p>
+                <p><a href="ficcao.html">Ficção Científica</a></p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
+```
